@@ -1,103 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/turnos.css">
-    <title>turnos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <title>Solicitar Turno - SaludPlus</title>
 </head>
 <body>
-    
-    <div class="trust-indicators">
-        <p><strong>50+</strong> Especialidades</p>
-        <p><strong>20+</strong> Años de Experiencia</p>
-        <p><strong>10,000+</strong> Pacientes Atendidos</p>
+    <div class="container">
+        <div class="header-section">
+            <h1>Solicitar Turno</h1>
+            <button class="btn-volver" onclick="window.location.href='index.html'">← Volver</button>
+        </div>
+
+        <form id="formularioTurno" class="formulario-turno">
+            <!-- SECCIÓN 1: DATOS DEL PACIENTE -->
+            <fieldset class="fieldset-section">
+                <legend>Datos del Paciente</legend>
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre: *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan" required>
+                    <span class="mensaje-error" id="error-nombre"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="apellido">Apellido: *</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Ej. García" required>
+                    <span class="mensaje-error" id="error-apellido"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="dni">DNI: *</label>
+                    <input type="text" id="dni" name="dni" placeholder="Ej. 12345678" required>
+                    <span class="mensaje-error" id="error-dni"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico: *</label>
+                    <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+                    <span class="mensaje-error" id="error-email"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono: *</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+54 (11) 1234-5678" required>
+                    <span class="mensaje-error" id="error-telefono"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha_nacimiento">Fecha de Nacimiento: *</label>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                    <span class="mensaje-error" id="error-fecha_nacimiento"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="genero">Género: *</label>
+                    <select id="genero" name="genero" required>
+                        <option value="">Seleccione un género</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                        <option value="prefiero_no_especificar">Prefiero no especificar</option>
+                    </select>
+                    <span class="mensaje-error" id="error-genero"></span>
+                </div>
+            </fieldset>
+
+            <!-- SECCIÓN 2: DATOS DEL TURNO -->
+            <fieldset class="fieldset-section">
+                <legend>Datos del Turno</legend>
+
+                <div class="form-group">
+                    <label for="especialidad">Especialidad: *</label>
+                    <select id="especialidad" name="especialidad" required>
+                        <option value="">Seleccione una especialidad</option>
+                        <option value="clinica">Clínica General</option>
+                        <option value="cardiologia">Cardiología</option>
+                        <option value="pediatria">Pediatría</option>
+                        <option value="ginecologia">Ginecología</option>
+                        <option value="traumatologia">Traumatología</option>
+                        <option value="neurologia">Neurología</option>
+                    </select>
+                    <span class="mensaje-error" id="error-especialidad"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="medico">Médico: *</label>
+                    <select id="medico" name="medico" disabled required>
+                        <option value="">Seleccione un médico</option>
+                    </select>
+                    <span class="mensaje-error" id="error-medico"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo_consulta">Tipo de Consulta: *</label>
+                    <select id="tipo_consulta" name="tipo_consulta" required>
+                        <option value="">Seleccione un tipo</option>
+                        <option value="primera_consulta">Primera Consulta</option>
+                        <option value="control">Control</option>
+                        <option value="resultado_estudios">Resultado de Estudios</option>
+                    </select>
+                    <span class="mensaje-error" id="error-tipo_consulta"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha_turno">Fecha del Turno: *</label>
+                    <input type="date" id="fecha_turno" name="fecha_turno" required>
+                    <span class="mensaje-error" id="error-fecha_turno"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="hora_turno">Hora del Turno: *</label>
+                    <input type="time" id="hora_turno" name="hora_turno" required>
+                    <span class="mensaje-error" id="error-hora_turno"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalidad">Modalidad: *</label>
+                    <select id="modalidad" name="modalidad" required>
+                        <option value="">Seleccione una modalidad</option>
+                        <option value="presencial">Presencial</option>
+                        <option value="videoconsulta">Videoconsulta</option>
+                    </select>
+                    <span class="mensaje-error" id="error-modalidad"></span>
+                </div>
+
+                <div class="form-group" id="grupo-plataforma" style="display: none;">
+                    <label for="plataforma">Plataforma Preferida: *</label>
+                    <select id="plataforma" name="plataforma">
+                        <option value="">Seleccione una plataforma</option>
+                        <option value="zoom">Zoom</option>
+                        <option value="google_meet">Google Meet</option>
+                        <option value="teams">Teams</option>
+                    </select>
+                    <span class="mensaje-error" id="error-plataforma"></span>
+                </div>
+            </fieldset>
+
+            <!-- SECCIÓN 3: COBERTURA MÉDICA -->
+            <fieldset class="fieldset-section">
+                <legend>Cobertura Médica</legend>
+
+                <div class="form-group">
+                    <label for="cobertura">Cobertura: *</label>
+                    <select id="cobertura" name="cobertura" required>
+                        <option value="">Seleccione una cobertura</option>
+                        <option value="osde">OSDE</option>
+                        <option value="swiss_medical">Swiss Medical</option>
+                        <option value="galeno">Galeno</option>
+                        <option value="ioma">IOMA</option>
+                        <option value="medicus">Medicus</option>
+                        <option value="sancor_salud">Sancor Salud</option>
+                        <option value="particular">Particular</option>
+                    </select>
+                    <span class="mensaje-error" id="error-cobertura"></span>
+                </div>
+
+                <div class="form-group" id="grupo-credencial" style="display: none;">
+                    <label for="numero_credencial">Número de Credencial: *</label>
+                    <input type="text" id="numero_credencial" name="numero_credencial" placeholder="Ej. ABC123456">
+                    <span class="mensaje-error" id="error-numero_credencial"></span>
+                </div>
+
+                <div class="form-group" id="grupo-plan" style="display: none;">
+                    <label for="plan">Plan: *</label>
+                    <input type="text" id="plan" name="plan" placeholder="Ej. Plan Superior">
+                    <span class="mensaje-error" id="error-plan"></span>
+                </div>
+            </fieldset>
+
+            <!-- SECCIÓN 4: INFORMACIÓN ADICIONAL -->
+            <fieldset class="fieldset-section">
+                <legend>Información Adicional</legend>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="primera_visita" name="primera_visita">
+                    <label for="primera_visita" class="checkbox-label">Es la primera vez que consulta en SaludPlus</label>
+                </div>
+
+                <div class="form-group" id="grupo-conocio" style="display: none;">
+                    <label for="como_nos_conocio">¿Cómo nos conoció?: *</label>
+                    <select id="como_nos_conocio" name="como_nos_conocio">
+                        <option value="">Seleccione una opción</option>
+                        <option value="busqueda_internet">Búsqueda en Internet</option>
+                        <option value="recomendacion">Recomendación de un Conocido</option>
+                        <option value="redes_sociales">Redes Sociales</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <span class="mensaje-error" id="error-como_nos_conocio"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="motivo_consulta">Motivo de la Consulta: *</label>
+                    <textarea id="motivo_consulta" name="motivo_consulta" rows="4" placeholder="Describa brevemente el motivo de su consulta..." required></textarea>
+                    <span class="mensaje-error" id="error-motivo_consulta"></span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="estudios_previos" name="estudios_previos">
+                    <label for="estudios_previos" class="checkbox-label">Tiene estudios previos relacionados con la consulta</label>
+                </div>
+
+                <div class="form-group" id="grupo-descripcion-estudios" style="display: none;">
+                    <label for="descripcion_estudios">Descripción de Estudios: *</label>
+                    <textarea id="descripcion_estudios" name="descripcion_estudios" rows="3" placeholder="Describa los estudios previos..."></textarea>
+                    <span class="mensaje-error" id="error-descripcion_estudios"></span>
+                </div>
+            </fieldset>
+
+            <!-- BOTONES DE ENVÍO -->
+            <div class="form-buttons">
+                <button type="submit" class="btn-submit">Solicitar Turno</button>
+                <button type="reset" class="btn-reset">Limpiar Formulario</button>
+            </div>
+        </form>
+
+        <!-- MENSAJE DE CONFIRMACIÓN (Oculto por defecto) -->
+        <div id="confirmacion" class="confirmacion-message" style="display: none;">
+            <h2>✓ ¡Turno Solicitado Exitosamente!</h2>
+            <p><strong>Número de Turno:</strong> <span id="numero-turno"></span></p>
+            <p><strong>Paciente:</strong> <span id="paciente-nombre"></span></p>
+            <p><strong>Especialidad:</strong> <span id="paciente-especialidad"></span></p>
+            <p><strong>Fecha y Hora:</strong> <span id="paciente-fecha-hora"></span></p>
+            <p class="texto-confirmacion">Te enviaremos un email con los detalles de tu turno.</p>
+            <button class="btn-nuevo-turno" onclick="window.location.href='turnos.html'">Solicitar Otro Turno</button>
+        </div>
     </div>
-    
-    <button onclick="window.location.href='index.html'">Volver</button>
-    
-    <!--Formulario para solicitar turnos-->
-    <h1>Solicitar Turno</h1>
-    <form action="submit_turno.php" method="post">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
 
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" required><br><br>
-
-        <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" required><br><br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required><br><br>
-
-        <label for="fecha de nacimiento">Fecha de Nacimiento:</label>
-        <input type="date" id="fecha de nacimiento" name="fecha de nacimiento" required><br><br>
-        <label for="genero">Género:</label>
-        <select id="genero" name="genero" required>
-            <option value="">Seleccione un género</option>
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-            <option value="otro">Otro</option>
-            <option value="prefiero no decirlo">Prefiero no especificar</option>
-        </select><br><br>
-
-
-        <label for="especialidad">Especialidad:</label>
-        <select id="especialidad" name="especialidad" required>
-            <option value="">Seleccione una especialidad</option>
-            <option value="clinica_general">Clínica General</option>
-            <option value="cardiologia">Cardiología</option>
-            <option value="pediatria">Pediatría</option>
-            <option value="ginecologia">Ginecología</option>
-            <option value="traumatologia">Traumatología</option>
-            <option value="neurologia">Neurología</option>
-        </select><br><br>
-        
-        <label for="medico">Médico:</label>
-        <select id="medico" name="medico" required>
-            <option value="">Seleccione un médico</option>
-            <option value="dr_sanchez">Dr. Sánchez</option>
-            <option value="dra_gomez">Dra. Gómez</option>
-            <option value="dr_fernandez">Dr. Fernández</option>
-            <option value="dra_lopez">Dra. López</option>
-            <option value="dr_martinez">Dr. Martínez</option>
-            <option value="dra_rodriguez">Dra. Rodríguez</option>
-            <option value="dr_garcia">Dr. García</option>
-            <option value="dra_perez">Dra. Pérez</option>
-            <option value="dr_fernandez">Dr. Fernández</option>
-            <option value="dra_gomez">Dra. Gómez</option>
-            <option value="dr_sanchez">Dr. Sánchez</option>
-            <option value="dra_lopez">Dra. López</option>
-        </select><br><br>
-
-        <label for="tipo de consulta">Tipo de Consulta:</label>
-        <select id="tipo de consulta" name="tipo de consulta" required>
-            <option value="">Seleccione un tipo de consulta</option>
-            <option value="primera consulta">Primera Consulta</option>
-            <option value="control">Control</option>
-            <option value="resultados de estudios">Resultados de estudios</option>
-        </select><br><br>
-
-        <label for="fecha">Fecha del turno:</label>
-        <input type="date" id="fecha" name="fecha" required><br><br>
-
-        <label for="hora">Hora del turno:</label>
-        <input type="time" id="hora" name="hora" required><br><br>
-
-        <label for="modalidad">Modalidad:</label>
-        <select id="modalidad" name="modalidad" required>
-            <option value="">Seleccione una modalidad</option>
-            <option value="presencial">Presencial</option>
-            <option value="videoconsulta">Videoconsulta</option>
-        </select><br><br>
-
-        <input type="submit" value="Solicitar Turno">
-        <input type="reset" value="Limpiar Formulario">
-    </form>
-
+    <script src="js/validaciones.js"></script>
 </body>
 </html>

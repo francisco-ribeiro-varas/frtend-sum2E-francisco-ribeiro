@@ -1,29 +1,391 @@
-/* color de fondo acorde a la pagina */
-body {
-    background-color: #f0f0f0;
-}  
+/* ===== VARIABLES Y CONFIGURACIÓN GENERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-header {
-    background-color: #333;
-    color: rgb(255, 255, 255);
-    padding: 20px;
+:root {
+    --color-primary: #0066cc;
+    --color-secondary: #00a878;
+    --color-light: #f0f7ff;
+    --color-dark: #1a1a1a;
+    --color-gray: #f5f5f5;
+    --color-border: #e0e0e0;
+    --font-family-primary: 'Poppins', sans-serif;
+    --font-family-secondary: 'Lato', sans-serif;
+}
+
+body {
+    font-family: var(--font-family-secondary);
+    line-height: 1.6;
+    color: var(--color-dark);
+    background-color: #fff;
+}
+
+/* ===== HEADER / NAVEGACIÓN ===== */
+.header {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 20px 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    max-width: 150px;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--color-secondary);
+}
+
+/* ===== SECCIÓN HERO ===== */
+.hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-family: var(--font-family-primary);
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.cta-button {
+    background-color: white;
+    color: var(--color-primary);
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.trust-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 60px;
+}
+
+.indicator {
     text-align: center;
 }
-/* estilos para el contenido principal */
-main {
-    padding: 20px;
-    background-color: rgb(255, 255, 255);
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+.indicator h3 {
+    font-family: var(--font-family-primary);
+    font-size: 36px;
+    font-weight: 700;
 }
-/*darle de diseño al boton de solicitar turno */
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+
+.indicator p {
     font-size: 16px;
-    border-radius: 5px;
+}
+
+/* ===== SECCIÓN ESPECIALIDADES (GRID) ===== */
+.especialidades {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.especialidades h2 {
+    font-family: var(--font-family-primary);
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-primary);
+}
+
+.especialidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    min-width: 1024px;
+}
+
+.especialidad-card {
+    background: var(--color-light);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.especialidad-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 102, 204, 0.15);
+    border-color: var(--color-primary);
+}
+
+.especialidad-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.especialidad-card h3 {
+    font-family: var(--font-family-primary);
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--color-primary);
+}
+
+.especialidad-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ===== SECCIÓN MÉDICOS (FLEXBOX) ===== */
+.medicos {
+    background-color: var(--color-gray);
+    padding: 80px 20px;
+}
+
+.medicos h2 {
+    font-family: var(--font-family-primary);
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-primary);
+}
+
+.medicos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.medico-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.medico-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.medico-foto {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.medico-card h3 {
+    font-family: var(--font-family-primary);
+    font-size: 20px;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+}
+
+.medico-card .especialidad {
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.medico-card .descripcion {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ===== SECCIÓN OBRAS SOCIALES ===== */
+.obras-sociales {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.obras-sociales h2 {
+    font-family: var(--font-family-primary);
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-primary);
+}
+
+.obras-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.obra-item {
+    background: var(--color-light);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.obra-item:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.obra-item h4 {
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ===== SECCIÓN CONTACTO ===== */
+.contacto {
+    background-color: var(--color-gray);
+    padding: 80px 20px;
+}
+
+.contacto h2 {
+    font-family: var(--font-family-primary);
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-primary);
+}
+
+.contacto-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.contacto-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contacto-info p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.mapa-placeholder {
+    flex: 1;
+    min-width: 300px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background-color: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .trust-indicators {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .especialidades-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .medicos-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }

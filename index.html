@@ -1,51 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>SaludPlus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <title>SaludPlus - Clínica Médica</title>
 </head>
 <body>
-    
-    <img src="imagenes/logo.jpg" alt="Logo SaludPlus">
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Especialidades</a></li>
-                <li><a href="#">Médicos</a></li>
-                <li><a href="#">Obras Sociales</a></li>
-                <li><a href="#">Contactos</a></li>
-            </ul>
-        </nav>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="imagenes/logo.jpg" alt="SaludPlus">
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#medicos">Médicos</a></li>
+                    <li><a href="#obras-sociales">Obras Sociales</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
     <main>
-        <section class="hero">
-            <h1>Bienvenido a SaludPlus</h1>
-            <p>Tu salud, nuestra prioridad.</p>
+        <!-- SECCIÓN HERO -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Tu Salud es Nuestra Prioridad</h1>
+                <p>Contamos con especialistas certificados y tecnología de punta para tu bienestar</p>
+                <button class="cta-button" onclick="window.location.href='turnos.html'">Solicitar Turno</button>
+            </div>
+            <div class="trust-indicators">
+                <div class="indicator">
+                    <h3>50+</h3>
+                    <p>Especialidades</p>
+                </div>
+                <div class="indicator">
+                    <h3>20+</h3>
+                    <p>Años de Experiencia</p>
+                </div>
+                <div class="indicator">
+                    <h3>10,000+</h3>
+                    <p>Pacientes Atendidos</p>
+                </div>
+            </div>
         </section>
 
-        <section class="services">
+        <!-- SECCIÓN ESPECIALIDADES -->
+        <section id="especialidades" class="especialidades">
             <h2>Nuestras Especialidades</h2>
-            <div class="service-card">
-                <img src="imagenes/cardiologia.png" alt="Cardiología">
-                <h3>Cardiología</h3>
-                <p>Atención especializada para tu corazón.</p>
+            <div class="especialidades-grid">
+                <div class="especialidad-card">
+                    <div class="especialidad-icon">🏥</div>
+                    <h3>Clínica General</h3>
+                    <p>Atención médica integral y consultas de diagnóstico general.</p>
+                </div>
+                <div class="especialidad-card">
+                    <div class="especialidad-icon">❤️</div>
+                    <h3>Cardiología</h3>
+                    <p>Especialistas en enfermedades del corazón y sistema cardiovascular.</p>
+                </div>
+                <div class="especialidad-card">
+                    <div class="especialidad-icon">👶</div>
+                    <h3>Pediatría</h3>
+                    <p>Cuidado integral de la salud de niños y adolescentes.</p>
+                </div>
+                <div class="especialidad-card">
+                    <div class="especialidad-icon">👩‍⚕️</div>
+                    <h3>Ginecología</h3>
+                    <p>Salud reproductiva y bienestar de la mujer.</p>
+                </div>
+                <div class="especialidad-card">
+                    <div class="especialidad-icon">🦴</div>
+                    <h3>Traumatología</h3>
+                    <p>Tratamiento de lesiones óseas y musculares.</p>
+                </div>
+                <div class="especialidad-card">
+                    <div class="especialidad-icon">🧠</div>
+                    <h3>Neurología</h3>
+                    <p>Diagnóstico y tratamiento del sistema nervioso.</p>
+                </div>
             </div>
-            <div class="service-card">
-                <img src="imagenes/dermatologia.png" alt="Dermatología">
-                <h3>Dermatología</h3>
-                <p>Cuidado experto para tu piel.</p>
+        </section>
+
+        <!-- SECCIÓN MÉDICOS -->
+        <section id="medicos" class="medicos">
+            <h2>Nuestros Médicos</h2>
+            <div class="medicos-container">
+                <div class="medico-card">
+                    <div class="medico-foto"></div>
+                    <h3>Dr. Carlos Gómez</h3>
+                    <p class="especialidad">Clínica General</p>
+                    <p class="descripcion">Médico con 15 años de experiencia en diagnóstico y tratamiento general.</p>
+                </div>
+                <div class="medico-card">
+                    <div class="medico-foto"></div>
+                    <h3>Dra. María López</h3>
+                    <p class="especialidad">Cardiología</p>
+                    <p class="descripcion">Especialista en cardiología con formación internacional.</p>
+                </div>
+                <div class="medico-card">
+                    <div class="medico-foto"></div>
+                    <h3>Dr. Juan Pérez</h3>
+                    <p class="especialidad">Pediatría</p>
+                    <p class="descripcion">Pediatra dedicado al cuidado integral de la salud infantil.</p>
+                </div>
             </div>
-            <div class="service-card">
-                <img src="imagenes/pediatria.png" alt="Pediatría">
-                <h3>Pediatría</h3>
-                <p>Atención integral para tus hijos.</p>
+        </section>
+
+        <!-- SECCIÓN OBRAS SOCIALES -->
+        <section id="obras-sociales" class="obras-sociales">
+            <h2>Obras Sociales Aceptadas</h2>
+            <div class="obras-grid">
+                <div class="obra-item">
+                    <h4>OSDE</h4>
+                </div>
+                <div class="obra-item">
+                    <h4>Swiss Medical</h4>
+                </div>
+                <div class="obra-item">
+                    <h4>Galeno</h4>
+                </div>
+                <div class="obra-item">
+                    <h4>IOMA</h4>
+                </div>
+                <div class="obra-item">
+                    <h4>Medicus</h4>
+                </div>
+                <div class="obra-item">
+                    <h4>Sancor Salud</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CONTACTO -->
+        <section id="contacto" class="contacto">
+            <h2>Contacto</h2>
+            <div class="contacto-container">
+                <div class="contacto-info">
+                    <p><strong>Dirección:</strong> Av. Principal 1234, Buenos Aires</p>
+                    <p><strong>Teléfono:</strong> +54 (11) 4567-8900</p>
+                    <p><strong>Email:</strong> contacto@saludplus.com.ar</p>
+                    <p><strong>Horario:</strong> Lunes a Viernes 08:00 - 20:00 hs</p>
+                </div>
+                <div class="mapa-placeholder">
+                    <p>🗺️ Ubicación en el mapa</p>
+                </div>
             </div>
         </section>
     </main>
-    <!--boton para solicitar turnos y que se diriga a turnos.html-->
-    <button onclick="window.location.href='turnos.html'">Solicitar Turno</button>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 SaludPlus - Clínica Médica. Todos los derechos reservados.</p>
+        <p>Desarrollado por: Tu Nombre</p>
+    </footer>
 </body>
 </html>
